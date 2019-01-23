@@ -23535,6 +23535,28 @@ class KanjiService {
   }
 
 
+  getGradeCount(grade) {
+    return this.kanjiByGrade[grade].length;
+  }
+
+
+  getRandomKanji(grade) {
+    min = 0;
+    max = this.kanjiByGrade[grade].length-1;
+    rand = randomIntFromInterval(min,max);
+    return this.kanjiByGrade[grade][rand];
+  }
+
+
+
+
+randomIntFromInterval(min,max) // min and max included
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+
+
   getKanjiByGrade(grade,index) {
 
     if (! (grade in this.kanjiByGrade)) {
